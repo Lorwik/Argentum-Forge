@@ -31,7 +31,7 @@ import org.argentumforge.engine.utils.editor.Obj;
  */
 public final class MapManager {
 
-    private static boolean mapLoading = false;
+    private static volatile boolean mapLoading = false;
 
     public static boolean isMapLoading() {
         return mapLoading;

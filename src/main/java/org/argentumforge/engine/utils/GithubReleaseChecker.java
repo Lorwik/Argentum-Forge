@@ -183,9 +183,11 @@ public class GithubReleaseChecker {
                         jsonObject.get("body").getAsString(),
                         isPre);
             } else {
-                Console.INSTANCE.addMsgToConsole("[Update] " + I18n.INSTANCE.get("update.no_releases"),
-                        FontStyle.ITALIC,
-                        new RGBColor(1f, 1f, 0f));
+                Engine.INSTANCE.runOnMainThread(() -> 
+                    Console.INSTANCE.addMsgToConsole("[Update] " + I18n.INSTANCE.get("update.no_releases"),
+                            FontStyle.ITALIC,
+                            new RGBColor(1f, 1f, 0f))
+                );
             }
         } catch (Exception e) {
             Logger.error(e, "JSON Parse Error during release check");
